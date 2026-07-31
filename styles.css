@@ -40,25 +40,9 @@ a { color: inherit; }
 
 h1, h2, h3 { color: var(--ink); line-height: 1.12; margin: 0; letter-spacing: -0.022em; }
 
-/* ---- header -------------------------------------------------------- */
-.site-header { padding: 26px 0 0; }
-.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.wordmark {
-  display: inline-flex; align-items: center; gap: 9px;
-  color: var(--ink); text-decoration: none;
-  font-weight: 680; font-size: 1.05rem; letter-spacing: -0.01em;
-}
-.wordmark .dot {
-  width: 11px; height: 11px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--rw), var(--rev));
-}
-.header-mail { color: var(--ink-mute); text-decoration: none; font-size: .9rem; }
-.header-mail:hover { color: var(--ink); }
-@media (max-width: 560px) { .header-mail { display: none; } }
-
 /* ---- hero ---------------------------------------------------------- */
 main { flex: 1 0 auto; }
-.hero { padding: 58px 0 34px; }
+.hero { padding: 88px 0 34px; }
 .hero h1 {
   font-size: clamp(1.9rem, 6.2vw, 2.9rem); font-weight: 720;
   max-width: 26ch; text-wrap: balance; margin-bottom: 20px;
@@ -102,7 +86,7 @@ main { flex: 1 0 auto; }
 .svc-card.build { --bar: linear-gradient(180deg, var(--rw), var(--rev)); }
 
 /* ---- app list ------------------------------------------------------ */
-.apps { padding: 0 0 34px; }
+.apps { padding: 0 0 58px; }
 .app-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
 
 .app-card {
@@ -147,7 +131,7 @@ main { flex: 1 0 auto; }
 .app-card.rev { --c: var(--rev); }
 
 /* ---- contact ------------------------------------------------------- */
-.contact { padding: 0 0 58px; }
+.contact { padding: 0 0 38px; }
 .contact h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 8px; }
 .contact p { margin: 0 0 18px; }
 .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
