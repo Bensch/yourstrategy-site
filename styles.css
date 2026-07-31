@@ -1,4 +1,4 @@
-/* ===== Your Strategy — personal hub ================================= */
+/* ===== Your Strategy: personal hub ================================== */
 
 :root {
   --bg:        #fbfbf9;   /* warm paper                             */
@@ -11,6 +11,7 @@
 
   --rw:        #2f6fed;   /* Reminder Wrangler accent (calendar blue) */
   --rev:       #2f9e63;   /* Reverdure accent (green)               */
+  --pm:        #b06a1a;   /* consulting accent (amber)              */
 
   --wrap: 720px;
   --r: 18px;
@@ -41,6 +42,7 @@ h1, h2, h3 { color: var(--ink); line-height: 1.12; margin: 0; letter-spacing: -0
 
 /* ---- header -------------------------------------------------------- */
 .site-header { padding: 26px 0 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .wordmark {
   display: inline-flex; align-items: center; gap: 9px;
   color: var(--ink); text-decoration: none;
@@ -50,26 +52,57 @@ h1, h2, h3 { color: var(--ink); line-height: 1.12; margin: 0; letter-spacing: -0
   width: 11px; height: 11px; border-radius: 50%;
   background: linear-gradient(135deg, var(--rw), var(--rev));
 }
+.header-mail { color: var(--ink-mute); text-decoration: none; font-size: .9rem; }
+.header-mail:hover { color: var(--ink); }
+@media (max-width: 560px) { .header-mail { display: none; } }
 
 /* ---- hero ---------------------------------------------------------- */
 main { flex: 1 0 auto; }
 .hero { padding: 58px 0 34px; }
 .hero h1 {
-  font-size: clamp(2rem, 6.6vw, 3.1rem); font-weight: 720;
-  max-width: 16ch; margin-bottom: 20px;
+  font-size: clamp(1.9rem, 6.2vw, 2.9rem); font-weight: 720;
+  max-width: 26ch; text-wrap: balance; margin-bottom: 20px;
 }
 .hero .intro {
   font-size: clamp(1.05rem, 3vw, 1.2rem); color: var(--ink-soft);
-  max-width: 46ch; margin: 0;
+  max-width: 52ch; margin: 0;
 }
 .hero .intro b { color: var(--ink); font-weight: 620; }
+.hero h1 .brand {
+  background: linear-gradient(90deg, var(--rw), var(--rev));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-/* ---- app list ------------------------------------------------------ */
-.apps { padding: 8px 0 50px; }
-.apps-label {
+/* ---- section labels ------------------------------------------------ */
+.section-label {
   text-transform: uppercase; letter-spacing: .13em; font-size: .72rem;
   font-weight: 700; color: var(--ink-mute); margin: 0 0 16px;
 }
+
+/* ---- services ------------------------------------------------------ */
+.services { padding: 8px 0 30px; }
+.svc-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+
+.svc-card {
+  position: relative; background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 22px 24px; overflow: hidden;
+}
+.svc-card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: var(--bar);
+}
+.svc-card h2 {
+  font-size: 1.24rem; font-weight: 680; letter-spacing: -0.015em;
+  margin: 0 0 8px;
+}
+.svc-card p { margin: 0; font-size: 1rem; }
+.svc-card.pm    { --bar: var(--pm); }
+.svc-card.build { --bar: linear-gradient(180deg, var(--rw), var(--rev)); }
+
+/* ---- app list ------------------------------------------------------ */
+.apps { padding: 0 0 34px; }
 .app-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
 
 .app-card {
@@ -113,6 +146,31 @@ main { flex: 1 0 auto; }
 .app-card.rw  { --c: var(--rw); }
 .app-card.rev { --c: var(--rev); }
 
+/* ---- contact ------------------------------------------------------- */
+.contact { padding: 0 0 58px; }
+.contact h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 8px; }
+.contact p { margin: 0 0 18px; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.btn {
+  display: inline-flex; align-items: center;
+  background: var(--ink); color: #fff; text-decoration: none;
+  font-weight: 640; font-size: .95rem; padding: 11px 20px;
+  border-radius: 999px;
+  transition: transform .16s ease, box-shadow .2s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 12px 24px -14px rgba(0,0,0,.5); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center;
+  background: var(--paper); color: var(--ink-soft); text-decoration: none;
+  border: 1px solid var(--line);
+  font-weight: 620; font-size: .95rem; padding: 11px 20px;
+  border-radius: 999px;
+  transition: border-color .2s ease, color .2s ease;
+}
+.btn-ghost:hover { color: var(--ink); border-color: #d6d6ce; }
+
 /* ---- footer -------------------------------------------------------- */
 .site-footer {
   flex-shrink: 0; border-top: 1px solid var(--line); padding: 24px 0 34px;
@@ -121,15 +179,13 @@ main { flex: 1 0 auto; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px;
   color: var(--ink-mute); font-size: .9rem;
 }
-.footer-inner a { color: var(--ink-mute); text-decoration: none; }
-.footer-inner a:hover { color: var(--ink); }
-.footer-copy { margin-left: auto; }
 
 @media (min-width: 620px) {
   .app-card { padding: 22px 26px; gap: 20px; }
+  .svc-card { padding: 24px 26px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .app-card, .app-card .chev { transition: none; }
+  .app-card, .app-card .chev, .btn { transition: none; }
 }
 a:focus-visible {
   outline: 2px solid var(--rw); outline-offset: 3px; border-radius: 10px;
