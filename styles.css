@@ -10,7 +10,9 @@
   --line-2:    #f0f0ea;
 
   --rw:        #2f6fed;   /* Reminder Wrangler accent (calendar blue) */
-  --rev:       #2f9e63;   /* Reverdure accent (green)               */
+  --green:     #2f9e63;   /* brand gradient end                     */
+  --wh:        #d4520c;   /* White Hot accent (ember)               */
+  --sa:        #2e7d6b;   /* Sole Account accent (the app's green)  */
   --pm:        #b06a1a;   /* consulting accent (amber)              */
 
   --wrap: 720px;
@@ -53,7 +55,7 @@ main { flex: 1 0 auto; }
 }
 .hero .intro b { color: var(--ink); font-weight: 620; }
 .hero h1 .brand {
-  background: linear-gradient(90deg, var(--rw), var(--rev));
+  background: linear-gradient(90deg, var(--rw), var(--green));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -83,7 +85,7 @@ main { flex: 1 0 auto; }
 }
 .svc-card p { margin: 0; font-size: 1rem; }
 .svc-card.pm    { --bar: var(--pm); }
-.svc-card.build { --bar: linear-gradient(180deg, var(--rw), var(--rev)); }
+.svc-card.build { --bar: linear-gradient(180deg, var(--rw), var(--green)); }
 
 /* ---- app list ------------------------------------------------------ */
 .apps { padding: 0 0 58px; }
@@ -128,7 +130,8 @@ main { flex: 1 0 auto; }
 .app-card:hover .chev { transform: translateX(3px); color: var(--c); }
 
 .app-card.rw  { --c: var(--rw); }
-.app-card.rev { --c: var(--rev); }
+.app-card.wh  { --c: var(--wh); }
+.app-card.sa  { --c: var(--sa); }
 
 /* ---- contact ------------------------------------------------------- */
 .contact { padding: 0 0 38px; }
@@ -163,6 +166,48 @@ main { flex: 1 0 auto; }
   display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px;
   color: var(--ink-mute); font-size: .9rem;
 }
+
+.footer-inner a { color: var(--ink-mute); text-decoration: none; }
+.footer-inner a:hover { color: var(--ink); }
+
+/* ---- app pages (sole-account/) ------------------------------------- */
+.sa-page { --c: var(--sa); }
+
+.topbar { padding: 24px 0 0; }
+.topbar a {
+  color: var(--ink-mute); text-decoration: none;
+  font-weight: 620; font-size: .92rem;
+}
+.topbar a:hover { color: var(--ink); }
+
+.app-hero { padding: 64px 0 64px; }
+.app-hero .app-icon {
+  width: 96px; height: 96px; border-radius: 22px; margin-bottom: 24px;
+  box-shadow: 0 10px 24px -12px rgba(0,0,0,.4), 0 0 0 1px var(--line);
+}
+.app-hero h1 {
+  font-size: clamp(2.2rem, 7vw, 3.1rem); font-weight: 720; margin-bottom: 14px;
+}
+.app-hero .intro {
+  font-size: clamp(1.05rem, 3vw, 1.2rem); max-width: 46ch; margin: 0 0 24px;
+}
+.pill {
+  display: inline-block; font-size: .78rem; font-weight: 660;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent);
+  padding: 5px 12px; border-radius: 999px;
+}
+
+/* ---- policy documents ---------------------------------------------- */
+.doc { padding: 40px 0 56px; }
+.doc h1 { font-size: clamp(1.9rem, 6vw, 2.5rem); font-weight: 720; margin-bottom: 6px; }
+.doc .eff { color: var(--ink-mute); font-size: .92rem; margin: 0 0 26px; }
+.doc .lede { font-size: 1.12rem; color: var(--ink); margin: 0 0 8px; }
+.doc h2 { font-size: 1.2rem; font-weight: 680; margin: 34px 0 10px; }
+.doc p { margin: 0 0 12px; }
+.doc ul { margin: 0 0 12px; padding-left: 1.2em; }
+.doc li { margin: 0 0 6px; }
+.doc a { color: var(--c); }
 
 @media (min-width: 620px) {
   .app-card { padding: 22px 26px; gap: 20px; }
